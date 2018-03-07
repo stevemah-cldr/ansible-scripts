@@ -1,6 +1,6 @@
 - hosts: all
   gather_facts: yes
-  remote_user: ansible 
+  remote_user: ansible22 
   serial: "50%"
   sudo: yes
   tasks:
