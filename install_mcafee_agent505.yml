@@ -1,0 +1,22 @@
+---
+- name: Install Mcafee Linux agent
+  hosts: test
+  remote_user: root
+  become: yes
+
+  tasks:
+  - name: make sure unzip is installed
+    yum:
+     name: unzip
+     state: present
+
+  - name: download & extract new Mcafee Agent
+    unarchive:
+     src: mcafee_agents/vm3w12r2-sm2-agentPackages_505.zip
+     dest: /tmp
+     mode: 0700
+
+  - name: install Mcafee EPO agent
+    shell: /tmp/install.sh -i
+    args:
+       chdir: /tmp

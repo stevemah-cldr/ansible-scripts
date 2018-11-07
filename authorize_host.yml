@@ -1,0 +1,12 @@
+---
+- name: copy authorized public key
+  hosts: test
+  remote_user: root
+  become: yes
+
+  tasks:
+  - name: install pub key
+    authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"

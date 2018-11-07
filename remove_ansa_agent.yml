@@ -1,0 +1,9 @@
+---
+- name: remove ansa agent
+  hosts: test
+  remote_user: root
+  become: yes
+
+  tasks:
+  - name: remove ansible agent
+    raw: /opt/Autonomic/ANSAPatchManager/bin/uninstall.sh

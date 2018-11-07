@@ -1,0 +1,17 @@
+---
+- name: remove Mcafee Linux agent
+  hosts: test
+  remote_user: root
+  become: yes
+
+  tasks:
+  - name: remove Mcafee agent
+    yum:
+      name: MFEcma
+      state: absent
+
+  - name: remove McafeeRT agent
+    yum:
+      name: MFErt
+      state: absent
+

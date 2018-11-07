@@ -1,0 +1,9 @@
+---
+- name: Wakeup EPO agents
+  hosts: test 
+  remote_user: root
+  become: yes
+
+  tasks:
+  - name: envoke cmdagent -p
+    raw: /opt/McAfee/agent/bin/cmdagent -p
